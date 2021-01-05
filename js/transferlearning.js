@@ -59,7 +59,6 @@ function clearExample() {
     document.querySelector("#result").innerHTML = "";
 }
 
-const classes = ['class A', 'class B', 'class C'];
 function predictCam() {
     if (classifier.getNumClasses() > 0) {
         // Get the activation from mobilenet from the webcam.
@@ -67,7 +66,7 @@ function predictCam() {
         // Get the most likely class and confidence from the classifier module.
         classifier.predictClass(activation).then((result) => {
             document.querySelector("#result").innerHTML =
-                `prediction: ${classes[result.label]}, probability: ${result.confidences[result.label]}`;
+                `prediction: ${buttonNameArray[result.label]}, probability: ${result.confidences[result.label] * 100}%`;
         });
         console.log("predict\n");
     }
@@ -82,7 +81,7 @@ function addButton(event) {
         newBtn.className = 'button button2';
         newBtn.id = 'buttonName' + buttonNameIndex.toString();
         newBtn.addEventListener('click', (e) => addClass(e, tempIndex));
-        buttonNameArray[buttonNameIndex] = newBtn.id;
+        buttonNameArray[buttonNameIndex] = buttonName;
         // button
         var newDiv = document.createElement('div');
         newDiv.id = 'div' + buttonNameIndex.toString();
