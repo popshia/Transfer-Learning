@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Webcam KNN Training</title>
+    <!-- Load the latest version of TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Webcam KNN Training</h1>
+    <h2 id="status">Model loading...</h2>
+    <div>
+        <button id="webcamButton" class="button button3">Enable Webcam</button>
+        <button id="disableWebcamButton" class="button button3" disabled>Close camera</button>
+        <button id="reset" class="button button5">Reset</button>
+        <button id="predict" class="button button6">Predict</button>
+    </div>
+    <div id="liveView">
+        <video id="webcam" autoplay width="320" height="240"></video>
+        <p id='result' style="font-size:160%;" text-decoration="underline"></p>
+    </div>
+    <button id="addBtn" class="button button1">Add Class</button>
+    <div id="addDiv"></div>
+    <div id="buttonDiv"></div>
+    <!-- Load js after the content of the page -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
+    <script src="transferLearning.js"></script>
+</body>
+
+</html>
